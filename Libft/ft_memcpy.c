@@ -6,7 +6,7 @@
 /*   By: jichen <jichen@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 17:23:24 by jichen            #+#    #+#             */
-/*   Updated: 2022/06/03 13:12:16 by jichen           ###   ########.fr       */
+/*   Updated: 2022/06/08 15:13:36 by jichen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
@@ -18,7 +18,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	unsigned char	*s;
 
 	d = dst;
-	s = (unsigned char	*)src;
+	s = (unsigned char *) src;
 	if (!dst && !src)
 		return (0);
 	while (n--)

@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jichen <jichen@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/11 18:15:54 by jichen            #+#    #+#             */
-/*   Updated: 2022/06/08 16:04:39 by jichen           ###   ########.fr       */
+/*   Created: 2022/06/03 13:52:39 by jichen            #+#    #+#             */
+/*   Updated: 2022/06/08 15:45:54 by jichen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlcpy(char	*dst, const char	*src, size_t	dstsize)
 {
-	int	i;
+	unsigned int	contar;
+	unsigned int	i;
 
+	contar = 0;
 	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	while (src[contar] != '\0')
+		++contar;
+	if (dstsize != 0)
+	{
+		while (src[i] != '\0' && i < (dstsize - 1))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (contar);
 }

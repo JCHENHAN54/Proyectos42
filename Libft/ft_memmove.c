@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jichen <jichen@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/11 18:15:54 by jichen            #+#    #+#             */
-/*   Updated: 2022/06/08 16:04:39 by jichen           ###   ########.fr       */
+/*   Created: 2022/05/14 17:37:27 by jichen            #+#    #+#             */
+/*   Updated: 2022/06/03 14:42:08 by jichen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-size_t	ft_strlen(const char *s)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int	i;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	if (dst == src || len == 0)
+		return (dst);
+	if (dst < src)
+	{
+		d = (unsigned char *)dst;
+		s = (unsigned char *)src;
+		while (len--)
+			*d++ = *s++;
+	}
+	else
+	{
+		d = (unsigned char *)dst + (len - 1);
+		s = (unsigned char *)src + (len - 1);
+		while (len--)
+			*d-- = *s--;
+	}
+	return (dst);
 }
